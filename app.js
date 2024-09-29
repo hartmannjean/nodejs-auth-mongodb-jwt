@@ -96,6 +96,6 @@ mongoose
     .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.f1cw5.mongodb.net/user?retryWrites=true&w=majority&appName=Cluster0`)
     .then(() => {
         app.listen(4000);
-        console.log('Conectou ao banco de dados.');
+        console.log('Microserviço de usuário rodando na porta 4000');
     })
     .catch((err) => console.log(err));
