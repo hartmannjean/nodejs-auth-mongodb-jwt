@@ -28,7 +28,6 @@ app.get('/user/:id', async (req, res) => {
     if (!user) {
         return res.status(404).json({ message: 'Usuário não encontrado.' });
     }
-
     return res.status(200).json({ user });
 });
 
@@ -81,9 +80,9 @@ app.post('/auth/login', async (req, res) => {
         const token = jwt.sign(
             { id: user._id },
             secret,
-            { expiresIn: '15m' } // Token expira em 15 minutos
+            { expiresIn: '15m' }
         );
-        res.status(200).json({ message: 'Autenticação realizada com sucesso.', token });
+        res.status(200).json({ message: 'Autenticação realizada com sucesso.', token, userId: user._id });
     } catch (error) {
         res.status(500).json({ message: 'Erro no servidor.' });
     }
